@@ -1,0 +1,6 @@
+{
+  "name": "RailBlock AI",
+  "description": "AI-powered decision-support tool for automatic maintenance block planning and conflict-free scheduling on Indian Railways.",
+  "requestFramePermissions": [],
+  "majorCapabilities": ["MAJOR_CAPABILITY_SERVER_SIDE_GEMINI_API"]
+}
