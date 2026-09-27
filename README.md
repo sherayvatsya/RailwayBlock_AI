@@ -51,15 +51,6 @@ This gives controllers a realistic, schedule-aware proposal instead of a purely 
 - Weekly schedule view for sanctioned block planning
 - Dark/light theme support for control room usability
 
-## Presentation Reference
-
-This project is aligned with the RailBlock AI presentation and pitch narrative available in the repository:
-
-- [RailBlock_AI_Presentation_Script.pdf](RailBlock_AI_Presentation_Script.pdf)
-- [presentation_script.html](presentation_script.html)
-
-The presentation highlights the operational problem, the strategic opportunity, and the product narrative for railway leadership and evaluator audiences.
-
 ## Deployed Website
 
 Live demo / deployed site:
