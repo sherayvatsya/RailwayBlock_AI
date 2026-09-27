@@ -64,9 +64,8 @@ The presentation highlights the operational problem, the strategic opportunity, 
 
 Live demo / deployed site:
 
-- [Add your deployed website link here](https://your-deployed-site-url.example)
+- https://railway-block-ai.vercel.app/
 
-> Replace the placeholder URL above with your actual deployment link when published.
 
 ## Project Structure
 
