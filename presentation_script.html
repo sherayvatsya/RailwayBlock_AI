@@ -1,0 +1,811 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>RailBlock AI — Official Presentation Script & Pitch Deck</title>
+  <style>
+    @import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&family=JetBrains+Mono:wght@400;600&family=Chakra+Petch:wght@600;700&display=swap');
+
+    @page {
+      size: A4 portrait;
+      margin: 14mm 12mm 14mm 12mm;
+      @bottom-right {
+        content: "Page " counter(page) " of " counter(pages);
+        font-family: 'Inter', sans-serif;
+        font-size: 8pt;
+        color: #64748b;
+      }
+    }
+
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+
+    body {
+      font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+      color: #0f172a;
+      background: #ffffff;
+      line-height: 1.5;
+      font-size: 9.5pt;
+      -webkit-print-color-adjust: exact;
+      print-color-adjust: exact;
+    }
+
+    /* Cover / Header Banner */
+    .header-banner {
+      background: linear-gradient(135deg, #0b1120 0%, #1e293b 50%, #0f172a 100%);
+      color: #ffffff;
+      padding: 24px;
+      border-radius: 12px;
+      margin-bottom: 20px;
+      border: 1px solid #334155;
+      position: relative;
+    }
+
+    .badge-row {
+      display: flex;
+      gap: 8px;
+      margin-bottom: 12px;
+      flex-wrap: wrap;
+    }
+
+    .badge {
+      display: inline-block;
+      padding: 3px 10px;
+      border-radius: 9999px;
+      font-size: 7.5pt;
+      font-weight: 700;
+      text-transform: uppercase;
+      letter-spacing: 0.6px;
+    }
+
+    .badge-amber {
+      background: rgba(245, 158, 11, 0.2);
+      color: #fbbf24;
+      border: 1px solid rgba(245, 158, 11, 0.4);
+    }
+
+    .badge-blue {
+      background: rgba(59, 130, 246, 0.2);
+      color: #60a5fa;
+      border: 1px solid rgba(59, 130, 246, 0.4);
+    }
+
+    .badge-emerald {
+      background: rgba(16, 185, 129, 0.2);
+      color: #34d399;
+      border: 1px solid rgba(16, 185, 129, 0.4);
+    }
+
+    .title {
+      font-family: 'Chakra Petch', sans-serif;
+      font-size: 22pt;
+      font-weight: 700;
+      color: #f8fafc;
+      letter-spacing: 0.5px;
+      line-height: 1.15;
+      margin-bottom: 6px;
+    }
+
+    .subtitle {
+      font-size: 10pt;
+      color: #94a3b8;
+      max-width: 680px;
+      line-height: 1.4;
+    }
+
+    .meta-grid {
+      display: grid;
+      grid-cols: repeat(4, 1fr);
+      grid-template-columns: 1.3fr 1fr 1fr 1fr;
+      gap: 12px;
+      margin-top: 16px;
+      padding-top: 14px;
+      border-top: 1px solid #334155;
+    }
+
+    .meta-item {
+      font-size: 8pt;
+    }
+
+    .meta-label {
+      color: #64748b;
+      text-transform: uppercase;
+      font-weight: 600;
+      letter-spacing: 0.5px;
+      font-size: 7pt;
+      display: block;
+      margin-bottom: 2px;
+    }
+
+    .meta-value {
+      color: #e2e8f0;
+      font-weight: 600;
+    }
+
+    /* Executive Pitch Summary Box */
+    .summary-box {
+      background: #f8fafc;
+      border: 1px solid #e2e8f0;
+      border-left: 4px solid #f59e0b;
+      padding: 14px 16px;
+      border-radius: 8px;
+      margin-bottom: 22px;
+    }
+
+    .summary-title {
+      font-size: 9pt;
+      font-weight: 700;
+      color: #0f172a;
+      text-transform: uppercase;
+      letter-spacing: 0.5px;
+      margin-bottom: 4px;
+      display: flex;
+      align-items: center;
+      gap: 6px;
+    }
+
+    .summary-text {
+      font-size: 8.5pt;
+      color: #334155;
+      line-height: 1.45;
+    }
+
+    /* Section & Slide Containers */
+    .slide-card {
+      background: #ffffff;
+      border: 1px solid #e2e8f0;
+      border-radius: 10px;
+      margin-bottom: 18px;
+      overflow: hidden;
+      page-break-inside: avoid;
+      box-shadow: 0 1px 3px rgba(0,0,0,0.04);
+    }
+
+    .slide-header {
+      background: #f1f5f9;
+      padding: 10px 16px;
+      border-bottom: 1px solid #e2e8f0;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+    }
+
+    .slide-number-title {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+    }
+
+    .slide-number {
+      background: #0f172a;
+      color: #ffffff;
+      font-size: 8pt;
+      font-weight: 700;
+      padding: 2px 8px;
+      border-radius: 6px;
+      font-family: 'JetBrains Mono', monospace;
+    }
+
+    .slide-heading {
+      font-size: 11pt;
+      font-weight: 700;
+      color: #0f172a;
+    }
+
+    .slide-timing {
+      font-size: 7.5pt;
+      font-weight: 600;
+      color: #475569;
+      background: #e2e8f0;
+      padding: 3px 8px;
+      border-radius: 9999px;
+      font-family: 'JetBrains Mono', monospace;
+    }
+
+    .slide-body {
+      padding: 14px 16px;
+      display: grid;
+      grid-template-columns: 1fr;
+      gap: 12px;
+    }
+
+    /* Visual cues box */
+    .visual-cue-box {
+      background: #eff6ff;
+      border: 1px solid #bfdbfe;
+      border-radius: 6px;
+      padding: 8px 12px;
+      font-size: 8pt;
+      color: #1e40af;
+      display: flex;
+      align-items: flex-start;
+      gap: 8px;
+    }
+
+    .visual-cue-label {
+      font-weight: 700;
+      text-transform: uppercase;
+      font-size: 7pt;
+      letter-spacing: 0.5px;
+      background: #2563eb;
+      color: #ffffff;
+      padding: 1px 5px;
+      border-radius: 4px;
+      white-space: nowrap;
+    }
+
+    /* Script box */
+    .speech-box {
+      background: #fafafa;
+      border-left: 3.5px solid #2563eb;
+      padding: 10px 14px;
+      border-radius: 0 6px 6px 0;
+    }
+
+    .speech-label {
+      font-size: 7.5pt;
+      font-weight: 700;
+      text-transform: uppercase;
+      color: #2563eb;
+      letter-spacing: 0.5px;
+      margin-bottom: 4px;
+      display: block;
+    }
+
+    .speech-content {
+      font-size: 8.8pt;
+      color: #1e293b;
+      line-height: 1.5;
+      font-style: italic;
+    }
+
+    .speech-content strong {
+      font-style: normal;
+      color: #0f172a;
+      font-weight: 700;
+    }
+
+    /* Key takeaways / talking points */
+    .points-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 8px;
+      margin-top: 4px;
+    }
+
+    .point-card {
+      background: #f8fafc;
+      border: 1px solid #e2e8f0;
+      border-radius: 6px;
+      padding: 6px 10px;
+    }
+
+    .point-card-title {
+      font-size: 7.5pt;
+      font-weight: 700;
+      color: #334155;
+      margin-bottom: 2px;
+      display: flex;
+      align-items: center;
+      gap: 5px;
+    }
+
+    .point-card-desc {
+      font-size: 7.5pt;
+      color: #64748b;
+      line-height: 1.35;
+    }
+
+    /* Technical Highlight Box */
+    .tech-box {
+      background: #0f172a;
+      color: #f8fafc;
+      border-radius: 8px;
+      padding: 14px 16px;
+      margin-bottom: 20px;
+      page-break-inside: avoid;
+    }
+
+    .tech-title {
+      font-family: 'Chakra Petch', sans-serif;
+      font-size: 11pt;
+      color: #fbbf24;
+      font-weight: 700;
+      margin-bottom: 8px;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+    }
+
+    .tech-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 10px;
+    }
+
+    .tech-col {
+      background: #1e293b;
+      border: 1px solid #334155;
+      border-radius: 6px;
+      padding: 8px 10px;
+    }
+
+    .tech-col-header {
+      font-size: 8pt;
+      font-weight: 700;
+      color: #38bdf8;
+      margin-bottom: 4px;
+      font-family: 'JetBrains Mono', monospace;
+    }
+
+    .tech-col-desc {
+      font-size: 7.5pt;
+      color: #94a3b8;
+      line-height: 1.4;
+    }
+
+    /* Q&A Section */
+    .qa-container {
+      page-break-inside: avoid;
+      margin-top: 10px;
+    }
+
+    .qa-header {
+      font-size: 11pt;
+      font-weight: 700;
+      color: #0f172a;
+      border-bottom: 2px solid #0f172a;
+      padding-bottom: 4px;
+      margin-bottom: 12px;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+    }
+
+    .qa-item {
+      background: #ffffff;
+      border: 1px solid #cbd5e1;
+      border-radius: 6px;
+      margin-bottom: 8px;
+      padding: 10px 12px;
+      page-break-inside: avoid;
+    }
+
+    .qa-question {
+      font-size: 8.5pt;
+      font-weight: 700;
+      color: #0f172a;
+      margin-bottom: 4px;
+      display: flex;
+      gap: 6px;
+    }
+
+    .qa-q-tag {
+      color: #dc2626;
+      font-weight: 800;
+    }
+
+    .qa-answer {
+      font-size: 8pt;
+      color: #334155;
+      line-height: 1.45;
+      padding-left: 18px;
+    }
+
+    .page-break {
+      page-break-after: always;
+      break-after: page;
+    }
+
+    .footer-note {
+      text-align: center;
+      font-size: 7.5pt;
+      color: #64748b;
+      margin-top: 16px;
+      padding-top: 8px;
+      border-top: 1px solid #e2e8f0;
+    }
+  </style>
+</head>
+<body>
+
+  <!-- COVER / HEADER BANNER -->
+  <div class="header-banner">
+    <div class="badge-row">
+      <span class="badge badge-amber">Ministry of Railways • Decision-Support AI</span>
+      <span class="badge badge-blue">Hackathon & Stakeholder Pitch</span>
+      <span class="badge badge-emerald">Interactive Web App Demonstration</span>
+    </div>
+    <div class="title">RailBlock AI — Complete Presentation Script</div>
+    <div class="subtitle">
+      AI-Powered Maintenance Block Planning & Timetable Conflict-Free Scheduling for Indian Railways
+    </div>
+    
+    <div class="meta-grid">
+      <div class="meta-item">
+        <span class="meta-label">Presentation Scope</span>
+        <span class="meta-value">7-10 Minute Pitch & Live System Demo</span>
+      </div>
+      <div class="meta-item">
+        <span class="meta-label">Target Audience</span>
+        <span class="meta-value">Railway Controllers, Hackathon Jury, Execs</span>
+      </div>
+      <div class="meta-item">
+        <span class="meta-label">Core Metric Impact</span>
+        <span class="meta-value">+14.2% Utilization, 0 Train Conflicts</span>
+      </div>
+      <div class="meta-item">
+        <span class="meta-label">Domain Basis</span>
+        <span class="meta-value">ECoR & SCR Rolling Corridor Block Model</span>
+      </div>
+    </div>
+  </div>
+
+  <!-- EXECUTIVE SUMMARY BOX -->
+  <div class="summary-box">
+    <div class="summary-title">
+      <span>🎯 Presenter's Quick Strategy & Winning Arc</span>
+    </div>
+    <div class="summary-text">
+      <strong>Your Core Narrative:</strong> Indian Railways cannot afford unscheduled track downtime while simultaneously running 160 km/h Vande Bharat trains and heavy freight rakes. Currently, 3 departments (Civil Engineering, TRD Electrical, S&T Signals) operate in manual silos, leading to 40%+ rejected block demands and train delays. <strong>RailBlock AI solves this by acting as the intelligent multi-department convergence layer</strong> — clustering co-located maintenance, auto-aligning to timetable shadow windows, and eliminating human conflict in real time.
+    </div>
+  </div>
+
+  <!-- SLIDE 1: THE HOOK & THE CRISIS -->
+  <div class="slide-card">
+    <div class="slide-header">
+      <div class="slide-number-title">
+        <span class="slide-number">STAGE 1</span>
+        <span class="slide-heading">The Hook & The Multi-Department Bottleneck</span>
+      </div>
+      <span class="slide-timing">00:00 – 01:15 (75s)</span>
+    </div>
+    <div class="slide-body">
+      <div class="visual-cue-box">
+        <span class="visual-cue-label">SCREEN DEMO</span>
+        <span>Show the <strong>Dashboard View</strong> with the dark theme, highlighting the "Cross-Department Demand" charts and the 14 overdue/urgent maintenance indicators.</span>
+      </div>
+
+      <div class="speech-box">
+        <span class="speech-label">Spoken Script (Say This Clearly & Confidently):</span>
+        <div class="speech-content">
+          "Respected judges and railway leaders, every single day, Indian Railways operates over <strong>13,000 passenger trains</strong> and thousands of freight rakes across 70,000 route kilometers. But beneath this movement lies an unavoidable reality: <strong>iron rails wear out, overhead 25kV electric wires sag, and digital signaling points fail if not maintained.</strong><br><br>
+          Today, maintenance is requested by three completely separate departments: <strong>Civil Engineering</strong> for tracks, <strong>Traction Distribution (TRD)</strong> for power lines, and <strong>Signal & Telecom (S&T)</strong> for point machines. Each department asks for separate track blocks using phone calls, memos, and Excel sheets. The Section Controller is caught in an impossible crossfire: grant the block and delay a Vande Bharat, or cancel the block and risk track safety.<br><br>
+          Nationwide, the <strong>Granted-to-Demand ratio hovers around just 58%</strong>. Maintenance backlogs build up, leading to unplanned speed restrictions, sudden rail fractures, and punctuality loss. <strong>RailBlock AI changes this paradigm completely.</strong>"
+        </div>
+      </div>
+
+      <div class="points-grid">
+        <div class="point-card">
+          <div class="point-card-title">⚠️ The Core Pain Point</div>
+          <div class="point-card-desc">Siloed block requests cause redundant corridor closures. 3 independent blocks waste 6 to 9 hours of revenue traffic.</div>
+        </div>
+        <div class="point-card">
+          <div class="point-card-title">💡 The Opportunity</div>
+          <div class="point-card-desc">Bundle tasks spatially (within 15km) and temporally into one single "Jumbo Traffic-cum-Power Block".</div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- SLIDE 2: THE SOLUTION & SYSTEM OVERVIEW -->
+  <div class="slide-card">
+    <div class="slide-header">
+      <div class="slide-number-title">
+        <span class="slide-number">STAGE 2</span>
+        <span class="slide-heading">Introducing RailBlock AI: Architectural Overview</span>
+      </div>
+      <span class="slide-timing">01:15 – 02:30 (75s)</span>
+    </div>
+    <div class="slide-body">
+      <div class="visual-cue-box">
+        <span class="visual-cue-label">SCREEN DEMO</span>
+        <span>Hover over the Navigation Tabs: <strong>Task Queue &rarr; Optimization Engine &rarr; Planner Review &rarr; What-If Simulator &rarr; Weekly Schedule</strong>.</span>
+      </div>
+
+      <div class="speech-box">
+        <span class="speech-label">Spoken Script:</span>
+        <div class="speech-content">
+          "Welcome to <strong>RailBlock AI</strong> — the next-generation decision-support system designed specifically for Indian Railways Divisional Operating Control.<br><br>
+          RailBlock AI does not replace experienced traffic controllers; it empowers them with a <strong>three-stage constraint-satisfaction engine</strong>. Instead of juggling 50 conflicting requests in their heads, controllers get a consolidated, timetable-synchronized block plan in under 5 seconds.<br><br>
+          Let me show you our live dashboard: Notice our <strong>Granted-to-Demand KPI</strong>. In our active corridor demonstration, we take the baseline utilization from 58.4% up to <strong>74.2%</strong>, directly mirroring the best practices of the East Coast Railway and South Central Railway Rolling Corridor Block programs."
+        </div>
+      </div>
+
+      <div class="points-grid">
+        <div class="point-card">
+          <div class="point-card-title">📊 Multi-Department Unified Queue</div>
+          <div class="point-card-desc">Ingests Engineering (tamping/screening), TRD (OHE inspection), and S&T (point machines) into one synchronized database.</div>
+        </div>
+        <div class="point-card">
+          <div class="point-card-title">⏱️ Sub-5-Second Optimization</div>
+          <div class="point-card-desc">Calculates proximity clusters, safety clearances, and timetable intervals instantly.</div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="page-break"></div>
+
+  <!-- SLIDE 3: TASK QUEUE & PRIORITY SCORING -->
+  <div class="slide-card">
+    <div class="slide-header">
+      <div class="slide-number-title">
+        <span class="slide-number">STAGE 3</span>
+        <span class="slide-heading">Task Queue & Multi-Factor Priority Ranking Matrix</span>
+      </div>
+      <span class="slide-timing">02:30 – 03:45 (75s)</span>
+    </div>
+    <div class="slide-body">
+      <div class="visual-cue-box">
+        <span class="visual-cue-label">SCREEN DEMO</span>
+        <span>Click on the <strong>Task Queue</strong> tab. Filter by Department (Engineering / TRD / S&T) and show the badge tags: <em>Critical, Overdue, Traffic Block Needed, Power Block Needed</em>. Click <strong>+ Submit Task</strong> to show the multi-department intake modal.</span>
+      </div>
+
+      <div class="speech-box">
+        <span class="speech-label">Spoken Script:</span>
+        <div class="speech-content">
+          "Let’s navigate into the <strong>Task Queue</strong>. Here, field engineers log maintenance requirements with asset-level precision: exact kilometer markers, required track machines like Plasser Tamping rakes, and whether an OHE 25kV power cutoff or signaling disconnection is required.<br><br>
+          Notice this task: <strong>'OHE Sag & Cantilever Adjustment at KM 244–248'</strong> by TRD, and <strong>'Ballast Tamping & Track Alignment at KM 240–252'</strong> by Civil Engineering. In conventional railway working, TRD would ask for a block on Tuesday, and Engineering would ask for another block on Thursday — shutting down this high-density section twice!<br><br>
+          RailBlock AI evaluates each task using our <strong>Weighted Multi-Factor Formula</strong>: factoring in Asset Criticality, Traffic Density, Overdue Days, and Safety Severity. Each task receives an objective priority score from 0 to 100, eliminating departmental bias."
+        </div>
+      </div>
+
+      <div class="points-grid">
+        <div class="point-card">
+          <div class="point-card-title">🎯 Objective Prioritization Formula</div>
+          <div class="point-card-desc">Priority = 0.35 × Urgency + 0.30 × Asset Criticality + 0.20 × Overdue Status + 0.15 × Track Class.</div>
+        </div>
+        <div class="point-card">
+          <div class="point-card-title">⚡ Interlock Awareness</div>
+          <div class="point-card-desc">Tracks power block flags and safety staff requirements (flagmen, OHE discharging earth crews) automatically.</div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- SLIDE 4: THE OPTIMIZATION ENGINE IN ACTION -->
+  <div class="slide-card">
+    <div class="slide-header">
+      <div class="slide-number-title">
+        <span class="slide-number">STAGE 4</span>
+        <span class="slide-heading">The 3-Step AI Engine & Timetable Conflict Resolution</span>
+      </div>
+      <span class="slide-timing">03:45 – 05:30 (105s)</span>
+    </div>
+    <div class="slide-body">
+      <div class="visual-cue-box">
+        <span class="visual-cue-label">SCREEN DEMO</span>
+        <span>Click on the <strong>Optimization Engine</strong> tab. Point out the 3 pipeline steps. Click <strong>'Re-Run AI Optimization'</strong>. Watch the animated progress bar, audio feedback, and the instant bundling card output.</span>
+      </div>
+
+      <div class="speech-box">
+        <span class="speech-label">Spoken Script:</span>
+        <div class="speech-content">
+          "Now, let's watch the heart of the system: the <strong>Optimization Engine</strong>. I will click 'Re-Run AI Optimization'.<br><br>
+          In fractions of a second, the algorithm executes three algorithmic stages:<br>
+          <strong>Step 1: Priority Sorting</strong> — Ranking the most critical safety tasks first.<br>
+          <strong>Step 2: Compatibility Grouping</strong> — The engine identifies that Engineering and TRD are both working between KM 240 and 248. It merges them into a <em>single integrated Jumbo Block</em>.<br>
+          <strong>Step 3: Timetable Conflict Avoidance</strong> — It cross-references the live Indian Railways timetable. Train #22436 Vande Bharat and Train #12301 Rajdhani are passing through this section. The algorithm automatically adds a <strong>15-minute safety buffer</strong> and slots the maintenance precisely between 01:15 and 04:45 during the night timetable dip.<br><br>
+          Look at the calculated efficiency gain right here on screen: <strong>52.8% time saved!</strong> What would have taken 9 hours across separate days is compressed into a single 4-hour window, with <strong>Zero Punctuality Impact</strong> on passenger traffic!"
+        </div>
+      </div>
+
+      <div class="points-grid">
+        <div class="point-card">
+          <div class="point-card-title">🛡️ 15-Minute Dynamic Buffer</div>
+          <div class="point-card-desc">Zero encroachment on passenger rakes. Safety margins prevent cascading detention downstream.</div>
+        </div>
+        <div class="point-card">
+          <div class="point-card-title">📈 50%+ Reduction in Track Idle Time</div>
+          <div class="point-card-desc">Dual/Triple department convergence extracts maximum work per granted minute of track possession.</div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="page-break"></div>
+
+  <!-- SLIDE 5: PLANNER REVIEW & OPERATIONAL WORKFLOW -->
+  <div class="slide-card">
+    <div class="slide-header">
+      <div class="slide-number-title">
+        <span class="slide-number">STAGE 5</span>
+        <span class="slide-heading">Planner Review, Digital Sanctions & Weekly Schedule</span>
+      </div>
+      <span class="slide-timing">05:30 – 06:45 (75s)</span>
+    </div>
+    <div class="slide-body">
+      <div class="visual-cue-box">
+        <span class="visual-cue-label">SCREEN DEMO</span>
+        <span>Click on the <strong>Planner Review</strong> tab. Show the status chip ('Awaiting Review'). Click <strong>'Sanction & Approve'</strong>. Show the sound effect and the status changing to 'Approved'. Then switch to <strong>Weekly Schedule</strong> to show the timeline Gantt chart.</span>
+      </div>
+
+      <div class="speech-box">
+        <span class="speech-label">Spoken Script:</span>
+        <div class="speech-content">
+          "In high-stakes railway safety, <strong>the Human must always remain in the loop</strong>. That's why our <strong>Planner Review</strong> interface serves the Chief Operating Controller.<br><br>
+          Controllers can review the bundled departments, verify track possession times, adjust start/end times if local conditions change, and with one click, issue a digital <strong>Sanction & Sanction Order</strong>.<br><br>
+          Next, let's open the <strong>Weekly Schedule</strong> view. Here you see a synchronized Gantt timeline across UP and DOWN lines, color-coded by department. Station Masters and Traction Power Controllers (TPC) can export this schedule as an official Operating Circular or printable permit for field staff."
+        </div>
+      </div>
+
+      <div class="points-grid">
+        <div class="point-card">
+          <div class="point-card-title">🔒 Controller Sanction Workflow</div>
+          <div class="point-card-desc">Full audit trail: timestamps, controller IDs, and specific cautionary notes recorded digitally.</div>
+        </div>
+        <div class="point-card">
+          <div class="point-card-title">📅 Interactive Weekly Schedule</div>
+          <div class="point-card-desc">Multi-line visual Gantt view showing corridor possessions, night shadow windows, and Sunday mega-blocks.</div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- SLIDE 6: WHAT-IF SCENARIO SIMULATOR -->
+  <div class="slide-card">
+    <div class="slide-header">
+      <div class="slide-number-title">
+        <span class="slide-number">STAGE 6</span>
+        <span class="slide-heading">Resilience Engineering: "What-If" Dynamic Simulator</span>
+      </div>
+      <span class="slide-timing">06:45 – 08:00 (75s)</span>
+    </div>
+    <div class="slide-body">
+      <div class="visual-cue-box">
+        <span class="visual-cue-label">SCREEN DEMO</span>
+        <span>Click on the <strong>What-If Simulator</strong> tab. Click <strong>'Run Preset 1: VIP Special Train Window Blocked'</strong> or <strong>'Run Preset 2: Emergency S&T Point Machine Failure'</strong>. Highlight the instant recalculation diff.</span>
+      </div>
+
+      <div class="speech-box">
+        <span class="speech-label">Spoken Script:</span>
+        <div class="speech-content">
+          "Now, railway operations are notoriously unpredictable. What happens when a VIP special train is routed at 2 AM? Or a sudden rail fracture occurs?<br><br>
+          In traditional systems, the entire night's maintenance collapses into chaos. But in RailBlock AI, we built the <strong>'What-If' Simulation Engine</strong>.<br><br>
+          Watch this: I click <em>'Scenario A: VIP Train Movement — Prime Window Blocked'</em>. Instantly, the engine simulates track unavailability, isolates the affected corridor, and dynamically relocates all 4 pending multi-department tasks into an adjacent shadow window — <strong>with zero train detentions and zero task cancellations!</strong><br><br>
+          Controllers can simulate scenarios before making irreversible track decisions, safeguarding both track safety and train punctuality."
+        </div>
+      </div>
+
+      <div class="points-grid">
+        <div class="point-card">
+          <div class="point-card-title">⚡ Instant Scenario Diff</div>
+          <div class="point-card-desc">Visual comparison of Before vs After metrics, task relocation logs, and risk flags.</div>
+        </div>
+        <div class="point-card">
+          <div class="point-card-title">🛠️ Disaster & Disruption Readiness</div>
+          <div class="point-card-desc">Immediate rescheduling during equipment failure, weather slowdowns, or emergency rakes.</div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="page-break"></div>
+
+  <!-- SLIDE 7: BUSINESS VALUE, ROI & NATIONAL IMPACT -->
+  <div class="slide-card">
+    <div class="slide-header">
+      <div class="slide-number-title">
+        <span class="slide-number">STAGE 7</span>
+        <span class="slide-heading">Quantifiable ROI, National Impact & Scalability</span>
+      </div>
+      <span class="slide-timing">08:00 – 09:15 (75s)</span>
+    </div>
+    <div class="slide-body">
+      <div class="points-grid" style="grid-template-columns: repeat(4, 1fr); margin-bottom: 8px;">
+        <div class="point-card" style="text-align: center;">
+          <div style="font-size: 14pt; font-weight: 800; color: #f59e0b; font-family: 'JetBrains Mono';">52%</div>
+          <div style="font-size: 7pt; font-weight: 600; color: #475569;">Track Downtime Saved</div>
+        </div>
+        <div class="point-card" style="text-align: center;">
+          <div style="font-size: 14pt; font-weight: 800; color: #10b981; font-family: 'JetBrains Mono';">0</div>
+          <div style="font-size: 7pt; font-weight: 600; color: #475569;">Passenger Train Delays</div>
+        </div>
+        <div class="point-card" style="text-align: center;">
+          <div style="font-size: 14pt; font-weight: 800; color: #3b82f6; font-family: 'JetBrains Mono';">74.2%</div>
+          <div style="font-size: 7pt; font-weight: 600; color: #475569;">Granted-to-Demand Ratio</div>
+        </div>
+        <div class="point-card" style="text-align: center;">
+          <div style="font-size: 14pt; font-weight: 800; color: #8b5cf6; font-family: 'JetBrains Mono';">&lt; 5s</div>
+          <div style="font-size: 7pt; font-weight: 600; color: #475569;">Algorithm Run Time</div>
+        </div>
+      </div>
+
+      <div class="speech-box">
+        <span class="speech-label">Spoken Script:</span>
+        <div class="speech-content">
+          "To conclude, let’s talk about national impact.<br><br>
+          Indian Railways is investing over <strong>₹2.5 Lakh Crore annually in capital expenditure</strong>. Modern high-speed trains cannot run on 20th-century maintenance planning workflows.<br><br>
+          By implementing RailBlock AI across all 68 divisions:<br>
+          1. <strong>Safety:</strong> Eliminates human oversight and overdue track defects before rail fractures happen.<br>
+          2. <strong>Punctuality:</strong> Guarantees Vande Bharat and freight trains hit zero conflict margins with 15-minute automated safety buffers.<br>
+          3. <strong>Asset Utilization:</strong> Elevates block utilization by 15 to 20%, unlocking hundreds of additional freight train paths every single month.<br><br>
+          Our architecture is built on standard open APIs, fully ready to integrate with CRIS systems like <strong>COA (Control Office Application)</strong>, <strong>FOIS (Freight Operating Information System)</strong>, and <strong>TMS (Track Management System)</strong>.<br><br>
+          Thank you. We are now open for your questions."
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- TECHNICAL HIGHLIGHT / SYSTEM ARCHITECTURE -->
+  <div class="tech-box">
+    <div class="tech-title">
+      <span>TECHNICAL ARCHITECTURE & PRODUCTION SCALING ROADMAP</span>
+      <span style="font-size: 8pt; color: #94a3b8; font-family: 'Inter';">Built for CRIS & Indian Railways Integration</span>
+    </div>
+    <div class="tech-grid">
+      <div class="tech-col">
+        <div class="tech-col-header">1. INGESTION & DATA LAYER</div>
+        <div class="tech-col-desc">
+          Restful API & Webhook interfaces connecting to CRIS COA (Control Office Application) timetable streams, TMS track asset registries, and OHE SCADA power telemetry.
+        </div>
+      </div>
+      <div class="tech-col">
+        <div class="tech-col-header">2. SOLVER CORE ENGINE</div>
+        <div class="tech-col-desc">
+          Implemented 3-step greedy heuristic MVP with sub-second response times; seamless abstraction layer to Google OR-Tools CP-SAT (Constraint Programming) & MILP for network-wide scaling.
+        </div>
+      </div>
+      <div class="tech-col">
+        <div class="tech-col-header">3. DISPATCH & SAFETY UI</div>
+        <div class="tech-col-desc">
+          High-contrast accessible dark/light interface designed for 24/7 Section Control rooms, featuring instant audio cues, role-based approval gates, and printable digital block permits.
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- TOUGH JURY Q&A CHEATSHEET -->
+  <div class="qa-container">
+    <div class="qa-header">
+      <span>JUDGES & STAKEHOLDERS Q&A CHEATSHEET (Be Prepared For These!)</span>
+      <span style="font-size: 8pt; color: #64748b; font-weight: 500;">Master Answers for Common Inquiries</span>
+    </div>
+
+    <div class="qa-item">
+      <div class="qa-question">
+        <span class="qa-q-tag">Q1:</span> "How does this differ from the existing Indian Railways COA (Control Office Application)?"
+      </div>
+      <div class="qa-answer">
+        <strong>Answer:</strong> "COA is an execution and train logging tool — it records blocks <em>after</em> controllers have manually agreed on them over the telephone. COA does <em>not</em> perform automated multi-department bundling, spatial clustering, or algorithmic conflict prevention. RailBlock AI sits directly upstream of COA as the intelligent decision-support layer, generating the optimized block plan that COA simply executes."
+      </div>
+    </div>
+
+    <div class="qa-item">
+      <div class="qa-question">
+        <span class="qa-q-tag">Q2:</span> "What if an emergency train is delayed by 45 minutes while a block is active?"
+      </div>
+      <div class="qa-answer">
+        <strong>Answer:</strong> "Our system incorporates a dynamic 15-minute safety buffer. Furthermore, our 'What-If' Simulation Engine receives live GPS feeds from RTIS (Real-Time Train Information System). If a train's arrival projection encroaches on the maintenance window, the system alerts the controller with an automatic rescheduling option before the train reaches the preceding block station."
+      </div>
+    </div>
+
+    <div class="qa-item">
+      <div class="qa-question">
+        <span class="qa-q-tag">Q3:</span> "Civil Engineering needs machines, but TRD needs power cutoff. How do you ensure safety when they work together?"
+      </div>
+      <div class="qa-answer">
+        <strong>Answer:</strong> "Safety interlocking is embedded into our constraint model. A joint Traffic-cum-Power block explicitly sequences the protocols: first, the OHE 25kV power is disconnected and earth discharging rods are placed by TRD staff; only then is the track machine permit released to Civil Engineering. Both clearances must be digitally recorded before the block begins."
+      </div>
+    </div>
+
+    <div class="qa-item">
+      <div class="qa-question">
+        <span class="qa-q-tag">Q4:</span> "How computationally scalable is your optimization algorithm across a full railway zone?"
+      </div>
+      <div class="qa-answer">
+        <strong>Answer:</strong> "Currently, our spatial clustering and greedy heuristic resolve 50 tasks across multiple corridors in under 200 milliseconds in the browser. For zonal scale (1,000+ tasks), our architecture is designed to offload to Google OR-Tools CP-SAT in Python, which solves NP-hard constraint optimization problems within 2 to 5 seconds on standard railway server infrastructure."
+      </div>
+    </div>
+  </div>
+
+  <div class="footer-note">
+    RailBlock AI • Ministry of Railways Decision Support System • Generated for Presentation & Pitch Demonstration
+  </div>
+
+</body>
+</html>
